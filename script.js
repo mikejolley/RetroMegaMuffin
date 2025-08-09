@@ -69,9 +69,15 @@ function initTileVideos() {
     const video = tile.querySelector('.tile-video');
     
     if (video) {
-      // Ensure video starts paused at first frame
-      video.pause();
+      // Ensure video loads and shows first frame
+      video.load(); // Force video to load
       video.currentTime = 0;
+      
+      // Wait for video to load enough to show first frame
+      video.addEventListener('loadeddata', () => {
+        video.pause();
+        video.currentTime = 0;
+      });
       
       tile.addEventListener('mouseenter', () => {
         video.play().catch(e => console.log('Video play failed:', e));

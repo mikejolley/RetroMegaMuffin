@@ -434,6 +434,7 @@ h2 {
   object-fit: cover;
   object-position: center center;
   opacity: 1;
+  background: #111319; /* Fallback background while loading */
 }
 
 .wide-video {
