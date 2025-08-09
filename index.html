@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RetroMegaMuffin</title>
+    <meta name="description" content="Retro games · collecting · modding · streaming" />
+    <meta name="theme-color" content="#00ffc2" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="RetroMegaMuffin" />
+    <meta property="og:description" content="Retro games · collecting · modding · streaming" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://retromegamuffin.github.io/" />
+    <meta property="og:image" content="assets/favicon.svg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600;800&display=swap"
+        rel="stylesheet" />
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="crt-overlay" aria-hidden="true"></div>
+    <div class="scanlines" aria-hidden="true"></div>
+    <main>
+        <section class="hero" aria-label="Retro Mega Muffin">
+            <img class="hero-logo" src="assets/logo.png" alt="Retro Mega Muffin logo" />
+            <div class="bio-text">
+                <p>Hello there! I'm Mike, a retro streamer (and collector) from the UK! I love 8-bit
+                    and 16-bit video games, NES and Mega Drive being my favourite
+                    systems of all time.</p>
+
+                <p>I usually stream Monday and Wednesday evenings from 8pm GMT/BST on Twitch so be
+                    sure to check the stream out and I'll see you around.</p>
+            </div>
+        </section>
+
+        <nav class="tab-navigation" aria-label="Main navigation">
+            <div class="container">
+                <button class="tab-button active" data-tab="about" aria-selected="true">Retro
+                    Gaming</button>
+                <button class="tab-button" data-tab="reviews" aria-selected="false">Game
+                    Reviews</button>
+            </div>
+        </nav>
+
+        <div class="tab-content">
+            <div id="about-tab" class="tab-panel active" aria-labelledby="about-tab-button">
+                <div id="tiles-grid" class="metro-grid" aria-live="polite">
+                    <!-- YouTube Channel -->
+                    <a href="https://www.youtube.com/@RetroMegaMuffin" target="_blank"
+                        rel="noopener" class="metro-tile youtube-tile video-tile"
+                        style="border-color: #ff3dd9;" aria-label="YouTube Channel">
+                        <video class="tile-video wide-video" muted loop preload="metadata">
+                            <source src="assets/gimmick.mp4" type="video/mp4">
+                        </video>
+                        <div class="tile-overlay">
+                            <div class="glyph"><i class="fab fa-youtube"></i></div>
+                            <div>
+                                <div class="title">YouTube Channel</div>
+                                <div class="subtitle">Long plays, mods, vods, and reviews.</div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Twitch -->
+                    <a href="https://www.twitch.tv/RetroMegaMuffin" target="_blank" rel="noopener"
+                        class="metro-tile twitch twitch-tile" style="border-color: #6441a5;"
+                        aria-label="Twitch on Twitch">
+                        <div class="twitch-bg-image"></div>
+                        <div class="tile-overlay">
+                            <div class="glyph"><i class="fab fa-twitch"></i></div>
+                            <div>
+                                <div class="title">Twitch</div>
+                                <div class="subtitle">Live retro streams. Expect mostly 8-bit and
+                                    16-bit
+                                    games played on original hardware.</div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- TikTok -->
+                    <a href="https://www.tiktok.com/@retromegamuffin" target="_blank" rel="noopener"
+                        class="metro-tile tiktok-tile video-tile" style="border-color: #00f2ea;"
+                        aria-label="TikTok">
+                        <video class="tile-video" muted loop preload="metadata">
+                            <source src="assets/tiktokvid.mp4" type="video/mp4">
+                        </video>
+                        <div class="tile-overlay">
+                            <div class="glyph"><i class="fab fa-tiktok"></i></div>
+                            <div>
+                                <div class="title">TikTok</div>
+                                <div class="subtitle">Retro games, hardware, rare finds, and classic
+                                    console gameplay.</div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Collection Spreadsheet -->
+                    <a href="https://docs.google.com/spreadsheets/d/1zT_h1XPpyqa9K17zMS6HIavKIb001diPpm90FeIXU9k/edit?usp=sharing"
+                        target="_blank" rel="noopener" class="metro-tile collection-tile"
+                        style="border-color: #34a853;" aria-label="Collection Spreadsheet">
+                        <div class="collection-bg-image"></div>
+                        <div class="tile-overlay">
+                            <div class="glyph"><i class="fas fa-table"></i></div>
+                            <div>
+                                <div class="title">My Collection</div>
+                                <div class="subtitle">I've been collecting retro games for years,
+                                    and
+                                    I've accumulated over 2000 games. This spreadsheet keeps track
+                                    of
+                                    most of them!</div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Discord -->
+                    <a href="https://discord.gg/WtWEJVBybN" target="_blank" rel="noopener"
+                        class="metro-tile discord-tile" style="border-color: #5865f2;"
+                        aria-label="Discord">
+                        <div class="discord-bg-image"></div>
+                        <div class="tile-overlay">
+                            <div class="glyph"><i class="fab fa-discord"></i></div>
+                            <div>
+                                <div class="title">Discord</div>
+                                <div class="subtitle">My Twitch gaming community for stream updates
+                                    and
+                                    announcements.</div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Other Networks -->
+                    <div class="metro-tile other-networks-tile" style="border-color: #8b5cf6;"
+                        aria-label="Other Networks">
+                        <div class="glyph"><i class="fas fa-share-alt"></i></div>
+                        <div class="tile-content">
+                            <div class="title">Other Networks</div>
+                            <div class="networks-links">
+                                <a href="https://bsky.app/profile/mikejolley.bsky.social"
+                                    target="_blank" rel="noopener" class="network-link"
+                                    aria-label="Bluesky">
+                                    <i class="fas fa-cloud"></i>
+                                    <span>Bluesky</span>
+                                </a>
+                                <a href="https://social.linux.pizza/@mikejolley" target="_blank"
+                                    rel="noopener" class="network-link" aria-label="Mastodon">
+                                    <i class="fab fa-mastodon"></i>
+                                    <span>Mastodon</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="reviews-tab" class="tab-panel" aria-labelledby="reviews-tab-button" hidden>
+                <section id="ratings-section" class="container section"
+                    aria-labelledby="ratings-heading">
+                    <h2 id="ratings-heading" class="section-title">Game Reviews</h2>
+                    <p class="ratings-description">
+                        Below are my reviews of retro games I've played on stream. Each game is
+                        rated across six categories: Gameplay, Graphics/Animations, Music/Sounds,
+                        Replayability/Length, Challenge/Fairness, and Personal Slant. Click any
+                        rating to see the full breakdown.
+                    </p>
+                    <div id="ratings-table-container">
+                        <table id="ratings-table" class="ratings" cellspacing="0" cellpadding="0">
+                            <thead>
+                                <tr>
+                                    <th class="game-name" colspan="2">Game / System</th>
+                                    <th class="game-rating">Rating</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ratings-tbody">
+                                <!-- Populated by script.js -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="ratings-empty" class="empty" hidden>
+                        <p>No ratings yet. Add some entries to <code>data/ratings.json</code>.</p>
+                    </div>
+                </section>
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+    <footer class="site-footer container">
+        <p>This site was vibe coded by <a href="https://github.com/RetroMegaMuffin" target="_blank"
+                rel="noopener">RetroMegaMuffin</a> who was too lazy to code by hand.</p>
+    </footer>
+
+    <script src="script.js" type="module"></script>
+</body>
+
+</html>

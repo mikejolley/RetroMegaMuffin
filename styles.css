@@ -1,0 +1,685 @@
+/* CSS reset (small, opinionated) */
+*, *::before, *::after { 
+  box-sizing: border-box; 
+}
+
+html, body { 
+  height: 100%; 
+}
+
+body { 
+  margin: 0; 
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; 
+  background: #0b0c10; 
+  color: #e6fff6;
+  font-size: clamp(16px, 1.2vw, 18px);
+}
+
+:root {
+  --bg: #0b0c10;
+  --fg: #e6fff6;
+  --muted: #9be8d5;
+  --primary: #00ffc2;
+  --secondary: #ff3dd9;
+  --accent: #00a3ff;
+  --warning: #ffbe0b;
+  --tile-bg: #111319;
+  --tile-border: #2afadf;
+  --shadow: 0 8px 0 #006b54;
+  --radius: 12px;
+  --gutter: 16px;
+  --gridline: #1c3a52;
+  --gridline-2: #0f6d86;
+}
+
+.container { 
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 24px 16px; 
+}
+
+/* Bio Text Above Tabs */
+.bio-text {
+  max-width: 600px;
+  margin: 24px auto 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.bio-text p {
+  font-size: clamp(16px, 1.4vw, 18px);
+  line-height: 1.5;
+  color: var(--muted);
+  margin: 0 0 12px 0;
+}
+
+h1, h2 { 
+  font-family: "Press Start 2P", system-ui; 
+  letter-spacing: 1px; 
+  text-shadow: 0 3px 0 #022e25, 0 0 14px rgba(0,255,194,0.35); 
+}
+
+h1 { 
+  font-size: clamp(20px, 3.6vw, 34px); 
+  margin: 0; 
+}
+
+h2 { 
+  font-size: clamp(16px, 2.2vw, 20px); 
+  margin: 0 0 12px; 
+}
+
+.section-title-row { 
+  display: flex; 
+  align-items: baseline; 
+  justify-content: space-between; 
+  gap: 12px; 
+}
+
+.section-title { 
+  color: var(--primary); 
+}
+
+/* Metro-style layout */
+.metro-grid {
+  display: grid;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 24px;
+  padding: 24px;
+}
+
+@media (min-width: 640px) { 
+  .metro-grid { 
+    grid-template-columns: repeat(2, 1fr); 
+  } 
+}
+
+@media (min-width: 900px) { 
+  .metro-grid { 
+    grid-template-columns: repeat(3, 1fr); 
+  } 
+}
+
+.metro-tile {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  aspect-ratio: 1 / 1;
+  min-height: var(--tile-size);
+  border-radius: 10px;
+  border: 3px solid var(--tile-border);
+  background: var(--tile-bg);
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: var(--fg);
+  padding: 14px;
+  overflow: hidden;
+}
+
+.metro-tile:hover { 
+  transform: translateY(-4px); 
+  box-shadow: 0 12px 0 #006b54; 
+}
+
+.metro-tile .title { 
+  font-family: "Press Start 2P", system-ui; 
+  font-size: clamp(15px, 1.6vw, 18px); 
+}
+
+.metro-tile .subtitle { 
+  color: var(--muted); 
+  font-size: clamp(13px, 1.2vw, 16px); 
+  margin-top: 6px; 
+}
+
+.metro-tile .glyph {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 28px;
+  color: white;
+}
+
+.metro-tile .glyph i {
+  color: white;
+}
+
+/* Game Ratings Table */
+.ratings-description {
+  color: var(--muted);
+  margin-bottom: 24px;
+  line-height: 1.6;
+  max-width: 800px;
+  font-size: clamp(15px, 1.3vw, 17px);
+}
+
+.ratings {
+  width: 100%;
+  border: 2px solid var(--tile-border);
+  background: linear-gradient(180deg, #111319, #0b0c10);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.ratings th,
+.ratings td {
+  padding: 0.75em 0.5em;
+  vertical-align: middle;
+  text-align: left;
+  border-bottom: 1px solid rgba(42, 250, 223, 0.1);
+}
+
+.ratings th:first-child,
+.ratings td:first-child {
+  padding-left: 1em;
+}
+
+.ratings th:last-child,
+.ratings td:last-child {
+  padding-right: 1em;
+}
+
+.ratings thead th {
+  background: var(--tile-bg);
+  border-bottom: 2px solid var(--tile-border);
+  text-transform: uppercase;
+  font-family: "Press Start 2P", system-ui;
+  font-size: 12px;
+  color: var(--primary);
+}
+
+.ratings tbody tr:nth-child(odd) {
+  background: rgba(42, 250, 223, 0.05);
+}
+
+.ratings tbody tr:hover {
+  background: rgba(42, 250, 223, 0.1);
+}
+
+.game-platform {
+  width: 60px;
+  min-width: 60px;
+  max-width: 60px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0.5em 0.25em;
+}
+
+.platform-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  vertical-align: middle;
+}
+
+.game-name {
+  text-align: left;
+  vertical-align: middle;
+  padding: 0.75em 0.5em;
+  width: auto;
+}
+
+.game-rating {
+  text-align: center;
+  width: 120px;
+  min-width: 120px;
+  max-width: 120px;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: 0.75em 0.5em;
+}
+
+.game-rating:hover {
+  background-color: rgba(0, 255, 194, 0.1);
+}
+
+.star-rating {
+  font-size: 16px;
+  color: #ffd700;
+  margin-bottom: 4px;
+  letter-spacing: 2px;
+}
+
+.rating-score {
+  font-family: "Press Start 2P", system-ui;
+  font-size: 18px;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+/* Breakdown functionality */
+.breakdown-row {
+  display: none;
+}
+
+.breakdown-row.show-breakdown {
+  display: table-row;
+  background: rgba(0, 255, 194, 0.05) !important;
+}
+
+.breakdown {
+  width: 100%;
+  margin: 0;
+}
+
+.breakdown th,
+.breakdown td {
+  padding: 0.25em 0.5em;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.breakdown th {
+  text-align: right;
+  width: 50%;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Hero banner: grid floor with retro icons */
+.hero {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 48px 16px 32px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(0,163,255,0.12), rgba(0,163,255,0) 40%),
+    linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
+    #08111a;
+  overflow: hidden;
+  border-bottom: 2px solid var(--tile-border);
+  z-index: 0;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 36px 36px, 36px 36px;
+  opacity: .5;
+  z-index: -1;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  left: -10%; 
+  right: -10%; 
+  bottom: -40%; 
+  height: 80%;
+  background-image:
+    linear-gradient(var(--gridline) 4px, transparent 4px),
+    linear-gradient(90deg, var(--gridline) 4px, transparent 4px);
+  background-size: 120px 120px, 120px 120px;
+  transform: perspective(600px) rotateX(60deg);
+  box-shadow: 0 -20px 60px rgba(0,163,255,0.2) inset;
+  opacity: 0.9;
+  z-index: -2;
+}
+
+.hero-logo {
+  max-width: min(460px, 80vw);
+  filter: drop-shadow(0 8px 0 #031a2a) drop-shadow(0 0 30px rgba(0,163,255,0.35));
+}
+
+/* Tab Navigation */
+.tab-navigation {
+  width: 100%;
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 9;
+}
+
+.tab-navigation .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.tab-button {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-family: "Press Start 2P", system-ui;
+  font-size: clamp(12px, 1.1vw, 14px);
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: var(--radius);
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .tab-button {
+    font-size: 10px;
+    padding: 10px 16px;
+  }
+  
+  .tab-navigation .container {
+    gap: 8px;
+    padding: 0 16px;
+  }
+}
+
+.tab-button:hover {
+  color: var(--fg);
+  background: rgba(0, 255, 194, 0.05);
+}
+
+.tab-button.active {
+  color: var(--primary);
+  background: rgba(0, 255, 194, 0.1);
+  box-shadow: 0 0 10px rgba(0, 255, 194, 0.3);
+}
+
+.tab-button:focus-visible {
+  outline: 2px solid var(--secondary);
+  outline-offset: -2px;
+}
+
+/* Tab Content */
+.tab-content {
+  min-height: 400px;
+}
+
+.tab-panel {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.tab-panel[hidden] {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(10px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+/* Video and Image Tile Backgrounds */
+.tiktok-tile, .youtube-tile, .twitch-tile, .collection-tile, .discord-tile {
+  position: relative;
+  overflow: hidden;
+}
+
+.tile-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  object-fit: cover;
+  object-position: center center;
+  opacity: 1;
+}
+
+.wide-video {
+  width: auto;
+  height: 100%;
+  min-width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  object-fit: cover;
+  object-position: center center;
+}
+
+.tile-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background: linear-gradient(180deg, rgba(11,12,16,0.7), rgba(11,12,16,0.9));
+  transition: background 0.3s ease;
+  display: flex;
+  align-items: flex-end;
+  padding: 14px;
+}
+
+.tiktok-tile:hover .tile-overlay {
+  background: linear-gradient(180deg, rgba(11,12,16,0.3), rgba(11,12,16,0.7));
+}
+
+/* Video tint overlays */
+.tiktok-tile::before,
+.video-tile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 255, 194, 0.15);
+  z-index: 1;
+  pointer-events: none;
+  transition: background 0.3s ease;
+}
+
+.tiktok-tile:hover::before,
+.video-tile:hover::before {
+  background: rgba(0, 255, 194, 0.25);
+}
+
+/* Twitch Tile Background Image */
+.twitch-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('assets/muffin-box-art.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  z-index: 0;
+  transition: all 0.4s ease;
+}
+
+.twitch-tile:hover .twitch-bg-image {
+  opacity: 0.5;
+  transform: rotate(2deg) scale(1.05);
+}
+
+.twitch-tile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 255, 194, 0.1);
+  z-index: 1;
+  pointer-events: none;
+  transition: background 0.3s ease;
+}
+
+.twitch-tile:hover::before {
+  background: rgba(0, 255, 194, 0.15);
+}
+
+/* Collection Tile Background Image */
+.collection-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('assets/gramlins.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0.4;
+  z-index: 0;
+  transition: all 0.3s ease;
+}
+
+.collection-tile:hover .collection-bg-image {
+  opacity: 0.6;
+  transform: scale(1.02);
+}
+
+.collection-tile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 255, 194, 0.08);
+  z-index: 1;
+  pointer-events: none;
+  transition: background 0.3s ease;
+}
+
+.collection-tile:hover::before {
+  background: rgba(0, 255, 194, 0.12);
+}
+
+/* Discord Tile Background Image */
+.discord-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('assets/logo.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  z-index: 0;
+  transition: all 0.4s ease;
+}
+
+.discord-tile:hover .discord-bg-image {
+  opacity: 0.5;
+  transform: rotate(-2deg) scale(1.05);
+}
+
+.discord-tile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 255, 194, 0.1);
+  z-index: 1;
+  pointer-events: none;
+  transition: background 0.3s ease;
+}
+
+.discord-tile:hover::before {
+  background: rgba(0, 255, 194, 0.15);
+}
+
+/* Other Networks Tile */
+.other-networks-tile {
+  cursor: default;
+}
+
+.other-networks-tile .glyph {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 24px;
+}
+
+.other-networks-tile .tile-content {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  right: 14px;
+}
+
+.networks-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.network-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 0;
+  color: var(--muted);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: clamp(12px, 1.1vw, 14px);
+}
+
+.network-link:hover {
+  color: var(--primary);
+  transform: translateX(2px);
+}
+
+.network-link i {
+  width: 14px;
+  text-align: center;
+  font-size: clamp(13px, 1.1vw, 14px);
+}
+
+.network-link span {
+  font-weight: 500;
+}
+
+.empty { 
+  padding: 16px; 
+  background: #0f1218; 
+  border: 2px dashed rgba(0,255,194,0.4); 
+  border-radius: var(--radius); 
+}
+
+.site-footer {
+  text-align: center;
+  color: var(--muted);
+  border-top: 2px solid rgba(0,255,194,0.2);
+  margin-top: 32px;
+  padding: 24px 0;
+  font-size: 12px;
+}
+
+.site-footer a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.site-footer a:hover {
+  color: var(--fg);
+  text-decoration: underline;
+}
+
+/* Focus styles */
+:focus-visible { 
+  outline: 3px solid var(--secondary); 
+  outline-offset: 2px; 
+  border-radius: 4px; 
+}
